@@ -10,8 +10,8 @@ export default function Home({ exploreData, cardsData }) {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Airbnb Build</title>
+        <link rel="icon" href="/airbnb2.png" />
       </Head>
 
       {/* Header */}
@@ -60,6 +60,34 @@ export default function Home({ exploreData, cardsData }) {
           description="Wishlists created by airbnb"
           buttonText="Get Inspired"
         />
+          <h2 className="text-4xl font-bold py-8">Discover New Hobbies</h2>
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+              {cardsData.map(({img,title}) => (
+              <MediumCard 
+                key={img}
+                img={img}
+                title={title}
+
+              />
+            ))}
+            </div>
+
+            <h2 className="text-4xl font-bold py-8">Quick Drives</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {exploreData.map(({ img, distance, location}) => (
+                  <SmallCard 
+                    key={img}
+                    img={img} 
+                    distance={distance}
+                    location={location}
+                  />
+                ))}
+
+              </div>
+
+
+
+          
         
       </main>
 
